@@ -1,7 +1,26 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
-let user = {};
+let user = [
+    {
+    id:1,
+    name: 'John',
+    age: 211
+
+    },
+    {
+        id:2,
+        name: 'rohan', 
+        age: 21
+    
+    },
+     {
+        id:3,
+        name: 'rohit',
+        age: 211
+        
+    },
+];
 
 app.get('/user', (req, res) => {
     res.send(user);
@@ -35,8 +54,14 @@ app.delete('/user', (req, res) => {
     });
 })
 
+//Parametrs example 
+app.get('/user/:id', (req, res) => {
+    console.log(req.paramas.id);
+    res.send("user id is",req.paramas)
+})
 
 
 
 
-app.listen(5000);
+
+app.listen(4000);
